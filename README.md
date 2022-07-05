@@ -1,7 +1,7 @@
 # Portifólio 
 
 ## Sobre o Projeto
-  Esse Portfólio foi criado com React. Usei JavaScript, React, TypeScript e Styled Components.
+  Esse projeto foi criado com React. Usei JavaScript para as funções, TypeScript e Styled Components.
 
 ## 🎨 Layout
 
