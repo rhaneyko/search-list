@@ -1,4 +1,4 @@
-# Portifólio 
+# Search Item List 
 
 ## Sobre o Projeto
   Esse projeto foi criado com React. Usei JavaScript para as funções, TypeScript e Styled Components.
