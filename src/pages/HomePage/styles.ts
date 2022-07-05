@@ -109,4 +109,6 @@ export const ContainerListItem = styled.div`
 
 export const ContainerListItemTitle = styled.p``;
 
-export const ContainerListItemQuantity = styled.p``;
+export const ContainerListItemQuantity = styled.p`
+    font-size: 12px;
+`;

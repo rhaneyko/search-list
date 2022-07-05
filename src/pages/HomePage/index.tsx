@@ -95,7 +95,7 @@ const HomePage: React.FC = () => {
           listItems?.map((itemName) => (
             <ContainerListItem>
               <ContainerListItemTitle>{itemName?.itemName}</ContainerListItemTitle>
-              <ContainerListItemQuantity>{itemName?.itemQuantity}</ContainerListItemQuantity>
+              <ContainerListItemQuantity>Quantidade: {itemName?.itemQuantity}</ContainerListItemQuantity>
 
             </ContainerListItem>
           ))}
