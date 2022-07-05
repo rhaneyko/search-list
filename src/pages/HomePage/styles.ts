@@ -16,10 +16,9 @@ export const Container = styled.div`
 export const ContainerSearch = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    background-color: red;
-
-
+    background-color: #CECECE;
 `;
 
 export const Title = styled.h1``;
@@ -28,9 +27,9 @@ export const CreateItemList = styled.form``;
 
 export const Inputs = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
-    margin-left: 30px;
+    
 `;
 
 export const InputAddItem = styled.input`
@@ -56,13 +55,15 @@ export const InputSearch = styled.input`
     height: 30px;
 
     padding-left: 10px;
+
+    margin-top: 10px;
     
     border: 1px solid #000;
     border-radius: 5px;
 
 `;
-export const AddButton = styled.button`
-    width: 60px;
+export const SearchButton = styled.button`
+    width: 100px;
     height: 50px;
 
     margin: 10px;
@@ -91,15 +92,21 @@ export const ContainerList = styled.div`
 export const ContainerListItem = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+
 
     width: 280px;
     height: 50px;
 
     margin: 5px;
+    padding: 10px;
 
     border-radius: 5px;
 
     background-color: #FFF;
 `;
 export const ContainerListItemTitle = styled.p``;
+
+export const ContainerListItemQuantity = styled.p``;

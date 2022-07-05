@@ -1,5 +1,5 @@
 
-import React, { FormEvent, useState } from 'react'
+import React, { useState } from 'react'
 
 import {
     Container,
@@ -7,25 +7,72 @@ import {
     Title,
     CreateItemList,
     Inputs,
-    InputAddItem,
-    CreateItem,
     InputSearch,
-    AddButton,
+    SearchButton,
     ContainerList,
     ContainerListItem,
     ContainerListItemTitle,
+    ContainerListItemQuantity,
 } from './styles'
 
-import {AiOutlinePlusCircle, AiOutlineSearch } from 'react-icons/ai'
-import { isTemplateSpan } from 'typescript';
+const HomePage: React.FC = () => {
+    const listItems = [
+        {
+            itemName: 'Leite',
+            itemQuantity: '3',
+        },
+        {
+            itemName: 'Suco',
+            itemQuantity: '5',
+        },
+        {
+            itemName: 'Pão',
+            itemQuantity: '5',
+        },
+        {
+            itemName: 'Açucar',
+            itemQuantity: '1',
+        },
+        {
+            itemName: 'Trigo',
+            itemQuantity: '2',
+        },
+        {
+            itemName: 'Creme de Leite',
+            itemQuantity: '4',
+        },
+        {
+            itemName: 'Biscoito',
+            itemQuantity: '6',
+        },
+        {
+            itemName: 'Café',
+            itemQuantity: '5',
+        },
+        {
+            itemName: 'Balinha',
+            itemQuantity: '10',
+        }
+    ]
 
-interface ItemProps {
-    id: number;
-    title: string;
-}
+  const [ itemList, setItemList ] = useState<{
+    itemName: string,
+    itemQuantity: string,
 
-const HomePage = () => {
-    const listItems = [ 'Carne', 'Leite', 'Água', 'Ovo', 'Sabão', 'Trigo', 'Feijão', 'Óleo', 'Arroz' ]
+  }[] | undefined>(listItems)
+  const [ text, setText ] = useState<string>('')
+
+  const searchOnClick = () => {
+    const findItems = listItems && listItems?.length > 0 ?
+    listItems?.filter((u) => u?.itemName === text)
+    : undefined
+
+    console.log(findItems)
+
+    setItemList(findItems)
+  }
+    
+  
   return (
     <Container>
         <ContainerSearch>
@@ -34,23 +81,31 @@ const HomePage = () => {
         >
           <Inputs>
             <InputSearch
-                type="text"
-                placeholder="Search"
-
+                type='text'
+                placeholder='Search'
+                value={text}
+                onChange={(e) => {
+                  setText(e.target.value)
+                  setItemList(listItems)
+                }}
             />
+            <SearchButton 
+            disabled={text === ''}
+            onClick={searchOnClick}>Pesquisar</SearchButton>
+              
           </Inputs>
-
-        
         </CreateItemList>
         <ContainerList>
-            {listItems.map(item => (
-                <ContainerListItem key={item}>
-                    <ContainerListItemTitle>{item}</ContainerListItemTitle>
-                </ContainerListItem>
-            ))}
+          {itemList && itemList?.length === 0 && <p>Nenhum item encontrado</p>}
+          {itemList && itemList?.length > 0 && listItems?.map((itemName) => (
+            <ContainerListItem>
+              <ContainerListItemTitle>{itemName?.itemName}</ContainerListItemTitle>
+              <ContainerListItemQuantity>{itemName?.itemQuantity}</ContainerListItemQuantity>
 
+            </ContainerListItem>
+          ))}
+          
         </ContainerList>
-
         </ContainerSearch>
     </Container>
   )
