@@ -5,7 +5,6 @@ import {
     Container,
     ContainerSearch,
     Title,
-    CreateItemList,
     Inputs,
     InputSearch,
     SearchButton,
@@ -19,55 +18,53 @@ const HomePage: React.FC = () => {
     const listItems = [
         {
             itemName: 'Leite',
-            itemQuantity: '3',
+            itemQuantity: 3,
         },
         {
             itemName: 'Suco',
-            itemQuantity: '5',
+            itemQuantity: 5,
         },
         {
             itemName: 'Pão',
-            itemQuantity: '5',
+            itemQuantity: 5,
         },
         {
             itemName: 'Açucar',
-            itemQuantity: '1',
+            itemQuantity: 1,
         },
         {
             itemName: 'Trigo',
-            itemQuantity: '2',
+            itemQuantity: 2,
         },
         {
             itemName: 'Creme de Leite',
-            itemQuantity: '4',
+            itemQuantity: 4,
         },
         {
             itemName: 'Biscoito',
-            itemQuantity: '6',
+            itemQuantity: 6,
         },
         {
             itemName: 'Café',
-            itemQuantity: '5',
+            itemQuantity: 5,
         },
         {
             itemName: 'Balinha',
-            itemQuantity: '10',
+            itemQuantity: 10,
         }
     ]
 
   const [ itemList, setItemList ] = useState<{
     itemName: string,
-    itemQuantity: string,
-
+    itemQuantity: number,
   }[] | undefined>(listItems)
   const [ text, setText ] = useState<string>('')
 
   const searchOnClick = () => {
-    const findItems = listItems && listItems?.length > 0 ?
-    listItems?.filter((u) => u?.itemName === text)
-    : undefined
-
-    console.log(findItems)
+    const findItems =
+      itemList && itemList?.length > 0
+      ? itemList?.filter((u) => u?.itemName === text)
+      : undefined
 
     setItemList(findItems)
   }
@@ -77,8 +74,6 @@ const HomePage: React.FC = () => {
     <Container>
         <ContainerSearch>
         <Title>Home Page</Title>
-        <CreateItemList
-        >
           <Inputs>
             <InputSearch
                 type='text'
@@ -86,18 +81,18 @@ const HomePage: React.FC = () => {
                 value={text}
                 onChange={(e) => {
                   setText(e.target.value)
-                  setItemList(listItems)
+                  setItemList(itemList)
                 }}
             />
             <SearchButton 
-            disabled={text === ''}
+            disabled={!text}
             onClick={searchOnClick}>Pesquisar</SearchButton>
-              
           </Inputs>
-        </CreateItemList>
         <ContainerList>
           {itemList && itemList?.length === 0 && <p>Nenhum item encontrado</p>}
-          {itemList && itemList?.length > 0 && listItems?.map((itemName) => (
+          {itemList && 
+          itemList?.length > 0 && 
+          listItems?.map((itemName) => (
             <ContainerListItem>
               <ContainerListItemTitle>{itemName?.itemName}</ContainerListItemTitle>
               <ContainerListItemQuantity>{itemName?.itemQuantity}</ContainerListItemQuantity>

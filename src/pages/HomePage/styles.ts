@@ -19,11 +19,11 @@ export const ContainerSearch = styled.div`
     align-items: center;
 
     background-color: #CECECE;
+
+    padding: 10px;
 `;
 
 export const Title = styled.h1``;
-
-export const CreateItemList = styled.form``;
 
 export const Inputs = styled.div`
     display: flex;
@@ -41,15 +41,16 @@ export const InputAddItem = styled.input`
     border: 1px solid #000;
     border-radius: 5px;
 `;
+
 export const CreateItem = styled.button`
     width: 60px;
     height: 50px;
 
     margin: 10px;
-    
 
     border: none;
 `;
+
 export const InputSearch = styled.input`
     width: 200px;
     height: 30px;
@@ -60,11 +61,11 @@ export const InputSearch = styled.input`
     
     border: 1px solid #000;
     border-radius: 5px;
-
 `;
+
 export const SearchButton = styled.button`
     width: 100px;
-    height: 50px;
+    height: 30px;
 
     margin: 10px;
     background-color: #605F5E;
@@ -87,15 +88,13 @@ export const ContainerList = styled.div`
     padding: 10px;
 
     background-color: #CECECE;
-
 `;
+
 export const ContainerListItem = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-
-
 
     width: 280px;
     height: 50px;
@@ -107,6 +106,7 @@ export const ContainerListItem = styled.div`
 
     background-color: #FFF;
 `;
+
 export const ContainerListItemTitle = styled.p``;
 
 export const ContainerListItemQuantity = styled.p``;
