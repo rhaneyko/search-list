@@ -55,8 +55,8 @@ const HomePage: React.FC = () => {
     ]
 
   const [ itemList, setItemList ] = useState<{
-    itemName: string,
-    itemQuantity: number,
+    itemName: string;
+    itemQuantity: number;
   }[] | undefined>(listItems)
   const [ text, setText ] = useState<string>('')
 
@@ -65,10 +65,10 @@ const HomePage: React.FC = () => {
       itemList && itemList?.length > 0
       ? itemList?.filter((u) => u?.itemName === text)
       : undefined
+    console.log(findItems)
 
     setItemList(findItems)
   }
-    
   
   return (
     <Container>
@@ -80,8 +80,8 @@ const HomePage: React.FC = () => {
                 placeholder='Search'
                 value={text}
                 onChange={(e) => {
-                  setText(e.target.value)
-                  setItemList(itemList)
+                   setText(e.target.value)
+                   setItemList(listItems)
                 }}
             />
             <SearchButton 
@@ -89,17 +89,17 @@ const HomePage: React.FC = () => {
             onClick={searchOnClick}>Pesquisar</SearchButton>
           </Inputs>
         <ContainerList>
-          {itemList && itemList?.length === 0 && <p>Nenhum item encontrado</p>}
-          {itemList && 
-          itemList?.length > 0 && 
-          listItems?.map((itemName) => (
-            <ContainerListItem>
-              <ContainerListItemTitle>{itemName?.itemName}</ContainerListItemTitle>
-              <ContainerListItemQuantity>Quantidade: {itemName?.itemQuantity}</ContainerListItemQuantity>
-
+        {itemList && itemList?.length === 0 && (
+          <p>No User Found</p>
+        )}
+        {itemList && itemList?.length > 0 && (
+          itemList?.map((item) => (
+            <ContainerListItem key={item.itemName}>
+              <ContainerListItemTitle>{item.itemName}</ContainerListItemTitle>
+              <ContainerListItemQuantity><strong>Quantidade: </strong>{item.itemQuantity}</ContainerListItemQuantity>
             </ContainerListItem>
-          ))}
-          
+          ))
+        )}
         </ContainerList>
         </ContainerSearch>
     </Container>
