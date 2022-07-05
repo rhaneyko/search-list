@@ -73,7 +73,7 @@ const HomePage: React.FC = () => {
   return (
     <Container>
         <ContainerSearch>
-        <Title>Home Page</Title>
+        <Title>Find Item</Title>
           <Inputs>
             <InputSearch
                 type='text'

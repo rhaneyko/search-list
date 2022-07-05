@@ -32,25 +32,6 @@ export const Inputs = styled.div`
     
 `;
 
-export const InputAddItem = styled.input`
-    width: 200px;
-    height: 30px;
-
-    padding-left: 10px;
-    
-    border: 1px solid #000;
-    border-radius: 5px;
-`;
-
-export const CreateItem = styled.button`
-    width: 60px;
-    height: 50px;
-
-    margin: 10px;
-
-    border: none;
-`;
-
 export const InputSearch = styled.input`
     width: 200px;
     height: 30px;
@@ -107,7 +88,9 @@ export const ContainerListItem = styled.div`
     background-color: #FFF;
 `;
 
-export const ContainerListItemTitle = styled.p``;
+export const ContainerListItemTitle = styled.p`
+    font-size: 16px;
+`;
 
 export const ContainerListItemQuantity = styled.p`
     font-size: 12px;
